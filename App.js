@@ -1,3 +1,4 @@
+//catching DOM elements
 const subtotal = document.getElementById('cart-subtotal');
 const infoPriceCard = document.querySelectorAll('.product-info');
 const subtotalPrice = document.querySelector('#cart-subtotal > p:nth-child(2)');
@@ -23,6 +24,7 @@ document.addEventListener('click', (e) => {
       return;
     }
   }
+  //Catching DOM elements inside Foreach
   infoPriceCard.forEach((infocard, i) => {
     let countItem = infocard.querySelector('#product-quantity').innerText;
     let priceItem = infocard
@@ -32,12 +34,12 @@ document.addEventListener('click', (e) => {
     productTotal.innerText = (countItem * priceItem).toFixed(2);
     arr1.push(countItem * priceItem);
   });
-
+  //using reduce method to count subtotal price
   const totalprice = arr1.reduce(
     (previousValue, currentValue) => previousValue + currentValue
   );
+  //Displaying total Prices of products
   subtotalPrice.innerText = totalprice.toFixed(2);
   taxTotalPrice.innerText = (+totalprice * 0.18).toFixed(2);
   totalpriceLast.innerText = (+totalprice + 15 + +totalprice * 0.18).toFixed(2);
-  console.log(totalprice);
 });

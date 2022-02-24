@@ -1,11 +1,11 @@
 const subtotal = document.getElementById('cart-subtotal');
-const arr1 = [];
-const arr2 = [];
-const arr3 = [];
-const ömer = document.querySelectorAll('.product-info');
-
+const infoPriceCard = document.querySelectorAll('.product-info');
+const subtotalPrice = document.querySelector('#cart-subtotal > p:nth-child(2)');
+const taxTotalPrice = document.querySelector('#cart-tax > p:nth-child(2)');
+const totalpriceLast = document.querySelector('#cart-total > p:nth-child(2)');
 //AddEventListener
 document.addEventListener('click', (e) => {
+  arr1 = [];
   if (e.target.classList.contains('remove-product')) {
     e.target.closest('.product').remove();
   }
@@ -23,12 +23,21 @@ document.addEventListener('click', (e) => {
       return;
     }
   }
-  ömer.forEach((infocard, i) => {
+  infoPriceCard.forEach((infocard, i) => {
     let countItem = infocard.querySelector('#product-quantity').innerText;
     let priceItem = infocard
       .getElementsByTagName('p')[0]
       .innerText.split(' ')[0];
     let productTotal = infocard.querySelector('.product-line-price');
     productTotal.innerText = (countItem * priceItem).toFixed(2);
+    arr1.push(countItem * priceItem);
   });
+
+  const totalprice = arr1.reduce(
+    (previousValue, currentValue) => previousValue + currentValue
+  );
+  subtotalPrice.innerText = totalprice.toFixed(2);
+  taxTotalPrice.innerText = (+totalprice * 0.18).toFixed(2);
+  totalpriceLast.innerText = (+totalprice + 15 + +totalprice * 0.18).toFixed(2);
+  console.log(totalprice);
 });

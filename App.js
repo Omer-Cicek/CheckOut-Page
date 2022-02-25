@@ -1,11 +1,12 @@
 //catching DOM elements
+const productsDiv = document.querySelector('.products');
 const subtotal = document.getElementById('cart-subtotal');
 const infoPriceCard = document.querySelectorAll('.product-info');
 const subtotalPrice = document.querySelector('#cart-subtotal > p:nth-child(2)');
 const taxTotalPrice = document.querySelector('#cart-tax > p:nth-child(2)');
 const totalpriceLast = document.querySelector('#cart-total > p:nth-child(2)');
 //AddEventListener
-document.addEventListener('click', (e) => {
+productsDiv.addEventListener('click', (e) => {
   arr1 = [];
   if (e.target.classList.contains('remove-product')) {
     e.target.closest('.product').remove();

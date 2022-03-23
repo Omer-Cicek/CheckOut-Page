@@ -1,6 +1,6 @@
 # CheckOut-Page
 
-![Design preview for the Checkout Page](Checkout.gif)
+![Design preview for the Checkout Page](CheckoutForm.gif)
 
 ## Welcome! 👋
 

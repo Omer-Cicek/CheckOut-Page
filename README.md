@@ -13,7 +13,7 @@ Thanks to visit my Github! In this project, i used flexbox. This project is crea
 Users should be able to:
 
 - View the checkout form 
-- remove or add items and change the price depends on how many items, its price
+- Remove or add items and change the price depends on how many items, its price
 
 ## Got feedback for me?
 
